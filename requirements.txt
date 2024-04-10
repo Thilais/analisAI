@@ -1,0 +1,9 @@
+Flask
+openai
+python-dotenv
+pandas
+openpyxl
+openai==0.28
+requests
+Jinja2
+gunicorn
