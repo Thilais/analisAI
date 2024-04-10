@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Arquivo Excel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='upload.css') }}?v=1">
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/sobremim">Sobre Mim</a></li>
+            <li><a href="/portfolio">Portfólio</a></li>
+            <li><a href="/contato">Contato</a></li>
+        </ul>
+    </nav>
+    <h1>Análise Qualitativa</h1>
+
+    <div class="texto">
+    <p>Você deve incluir aqui o arquivo que contem a transcrição das entrevistas. Insira um excel com a seguinte estrutura:</p>
+    <ul>
+        <li>A coluna "PERGUNTA" deve estar nomeada assim, e em caixa alta.</li>
+        <li>Todas as perguntas devem estar com o enunciado completo.</li>
+        <li>Cada coluna subsequente representará um entrevistado.</li>
+    </ul>
+    
+    <p><img src="/static/print_planilha.png" alt="Imagem PNG"></p>
+    </div>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileToUpload" accept=".xlsx, .xls">
+        <input type="submit" value="Upload" name="submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Análise</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='upload.css') }}?v=1">
+    <style>
+        /* Estilos para o pop-up */
+        .popup {
+            display: none; /* Oculta por padrão */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            padding: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/sobremim">Sobre Mim</a></li>
+            <li><a href="/portfolio">Portfólio</a></li>
+            <li><a href="/contato">Contato</a></li>
+            <li><a href="/">Upload</a></li>
+        </ul>
+    </nav>
+
+    <h1>Resultados da Análise</h1>
+    <h2> (3 primeiras linhas):</h2>
+    <table id="tabela1">
+        <tr>
+    {{ primeiras_linhas|safe }}
+    <hr>
+
+        </tr>
+    </table>
+
+
+    <h2>Análise qualitativa:</h2>
+    </table>
+
+    <table id="tabela2">
+        <tr>
+            <th>Pergunta</th>
+            <th>Análise</th>
+        </tr>
+        {% for result in analysis_results %}
+        <tr>
+            <td>{{ result.Pergunta }}</td>
+            <td>{{ result.Análise }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <hr>
+</body>
+
+    </table>
+    <form action="/envio_email" method="post">
+        <input type="hidden" name="caminho_arquivo_resultados" value="{{ caminho_arquivo_resultados }}">
+        <label for="destinatario">E-mail para receber análise completa:</label><br>
+        <input type="email" id="destinatario" name="destinatario" required><br>
+        <input type="submit" value="Enviar por E-mail">
+    </form>
+
+    {% if enviado %}
+    <!-- Pop-up exibido após o envio do e-mail -->
+    <div class="popup">
+        <p>E-mail enviado com sucesso!</p>
+    </div>
+    <script>
+        // Função para mostrar o pop-up quando a página for carregada
+        window.onload = function() {
+            document.querySelector('.popup').style.display = 'block';
+        };
+    </script>
+{% endif %}
+{% if erro %}
+    <p>Ocorreu um erro ao enviar o e-mail. Por favor, tente novamente mais tarde.</p>
+{% endif %}
+
+</body>
+</html>
+
+
+
+
