@@ -158,4 +158,4 @@ def send_email():
     except Exception as e:
         return render_template('upload.html', erro=str(e))
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000, timeout=220)
