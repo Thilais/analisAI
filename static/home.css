@@ -1,0 +1,58 @@
+body{
+    background-color: #152402;
+    color:rgb(0, 0, 0);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+h1 {font-size: 170px;
+    text-align: center;}
+
+    h2 {font-size: 80px;
+        text-align: center;
+   }
+
+
+
+
+    h1 p {
+        line-height: 0; 
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+
+
+
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        align-items: center;
+        padding: 12px; }
+
+    nav a {
+        font-size: 30px;
+    }
+    
+    nav a:hover {
+        color: #84be42;
+    }
+
+    a {
+        color: rgb(180, 45, 21);
+        text-decoration: none;}
+
+
+
+        body {
+            background-image: url('fundo.jpg');
+            background-size: cover; 
+            background-position: center; 
+            
+        }
+
